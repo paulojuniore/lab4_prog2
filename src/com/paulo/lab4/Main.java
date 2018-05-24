@@ -16,7 +16,9 @@ public class Main {
 	private static final String SAIR = "O";
 	
 	private static Scanner scan = new Scanner(System.in);
+	
 	private static HashSet<Aluno> alunos = new HashSet<Aluno>();
+	private static HashSet<Grupo> grupos = new HashSet<Grupo>();
 	
 	public static void main(String[] args) {
 		
@@ -33,6 +35,7 @@ public class Main {
 					
 				case(EXIBIR):
 					exibir();
+					break;
 			
 				case(SAIR):
 					continua = false;
@@ -78,10 +81,27 @@ public class Main {
 	}
 	
 	public static void exibir() {
-		Iterator it = alunos.iterator();
-		while(it.hasNext()) {
-			System.out.print(it.next());
+		System.out.print("Matrícula: ");
+		String matricula = scan.nextLine();
+		for(Aluno aluno : alunos) {
+			if(aluno.getMatricula().equals(matricula)) {
+				System.out.println("Aluno: " + aluno.toString());
+				return;
+			}
 		}
+		System.out.println("Aluno não cadastrado.\n");
 	}
+	
+	public static void cadastrarGrupo() {
+		System.out.println("Grupo: ");
+		String nomeGrupo = scan.nextLine();
+	}
+	
+//	public static void exibir() {
+//		Iterator it = alunos.iterator();
+//		while(it.hasNext()) {
+//			System.out.print(it.next());
+//		}
+//	}
 
 }

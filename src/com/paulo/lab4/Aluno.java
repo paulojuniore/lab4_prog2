@@ -1,10 +1,13 @@
 package com.paulo.lab4;
 
+import java.util.HashSet;
+
 public class Aluno {
 	
 	private String matricula;
 	private String nome;
 	private String curso;
+	private HashSet<Grupo> grupos = new HashSet<>();
 	
 	public Aluno(String matricula, String nome, String curso) {
 		this.matricula = matricula;
