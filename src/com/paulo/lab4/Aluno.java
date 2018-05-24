@@ -24,6 +24,10 @@ public class Aluno {
 		return curso;
 	}
 	
+	public String toString() {
+		return matricula + " - " + nome + " - " + curso + System.lineSeparator();
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
