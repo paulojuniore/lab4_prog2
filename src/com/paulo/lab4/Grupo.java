@@ -2,19 +2,48 @@ package com.paulo.lab4;
 
 import java.util.Set;
 
+/**
+ * Representa um Grupo de Estudo.
+ * Um Grupo de estudos possui um tema, e também, um conjunto de alunos associado a este grupo.
+ * 
+ * @author Paulo Mendes da Silva Júnior - 117210922
+ *
+ */
+
 public class Grupo {
 	
+	/**
+	 * Representa o tema de um grupo: ex: Biologia.
+	 */
 	private String tema;
+	
+	/**
+	 * Representa um conjunto de alunos que compôem aquele grupo. inicialmente vazio e sem tamanho fixo.
+	 */
 	private Set<Aluno> alunos;
 	
+	
+	/**
+	 * Constrói um Grupo de estudos a partir do tema ao qual irá se referir.
+	 * 
+	 * @param tema : nome do grupo.
+	 */
 	public Grupo(String tema) {
 		this.tema = tema;
 	}
 	
+	/**
+	 * Retorna o tema de um grupo.
+	 * 
+	 * @return : tema do grupo.
+	 */
 	public String getTema() {
 		return tema;
 	}
 	
+	/**
+	 * Gera um identificar único para cada item inserido na coleção HashSet, através do Hashing.
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;

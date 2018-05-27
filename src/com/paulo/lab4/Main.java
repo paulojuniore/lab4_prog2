@@ -5,6 +5,15 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 
+/**
+ * Representa um sistema de Controle de Alunos, contém alguns métodos auxiliares que realizam a leitura de
+ * dados, tratamento de exceções, e assim os dados tratados são passados para os métodos das Classes 
+ * auxiliares para concretizar a operação.
+ * 
+ * @author Paulo Mendes da Silva Júnior - 117210922
+ *
+ */
+
 public class Main {
 	
 	private static final String CADASTRAR = "C";
@@ -49,6 +58,11 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Exibe o menu com as opções do controle de Alunos.
+	 * 
+	 * @return : String que representa a opção escolhida lida a partir do teclado.
+	 */
 	public static String exibeMenu() {
 		System.out.println("(C)adastrar Aluno");
 		System.out.println("(E)xibir Aluno");
@@ -63,6 +77,10 @@ public class Main {
 		return op;
 	}
 	
+	/**
+	 * Exibe o menu com a requisição dos dados para cadastrar um novo aluno.
+	 * Caso a mesma matrícula seja inserida novamente uma mensagem de erro é exibida.
+	 */
 	public static void menuCadastrar() {
 		System.out.print("Matrícula: ");
 		String matricula = scan.nextLine();
@@ -80,6 +98,10 @@ public class Main {
 		}
 	}
 	
+	/**
+	 * Exibe um aluno que já foi cadastrado, tendo como entrada a sua matrícula.
+	 * Caso uma matrícula não cadastrada seja inserida, uma mensagem de erro será exibida.
+	 */
 	public static void exibir() {
 		System.out.print("Matrícula: ");
 		String matricula = scan.nextLine();
@@ -92,6 +114,10 @@ public class Main {
 		System.out.println("Aluno não cadastrado.\n");
 	}
 	
+	/**
+	 * Cria um novo Grupo a partir do seu tema(nome).
+	 * Caso se tente cadastrar um novo grupo com o mesmo nome de um grupo já existente, uma mensagem de erro ocorrerá.
+	 */
 	public static void cadastrarGrupo() {
 		System.out.println("Grupo: ");
 		String nomeGrupo = scan.nextLine();
