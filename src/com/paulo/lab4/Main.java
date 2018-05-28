@@ -11,7 +11,7 @@ import java.util.Set;
  * auxiliares para concretizar a operação.
  * 
  * @author Paulo Mendes da Silva Júnior - 117210922
- *
+ * 
  */
 
 public class Main {
@@ -45,6 +45,14 @@ public class Main {
 				case(EXIBIR):
 					exibir();
 					break;
+					
+				case(NOVOGRUPO):
+					cadastrarGrupo();
+					break;
+					
+				case(ALOCARALUNO):
+					alocarAluno();
+					break;
 			
 				case(SAIR):
 					continua = false;
@@ -73,7 +81,7 @@ public class Main {
 		System.out.println("(O)ra, vamos fechar o programa!");
 		
 		System.out.print("\nOpção> ");
-		String op = scan.nextLine();
+		String op = scan.nextLine().toUpperCase();
 		return op;
 	}
 	
@@ -107,7 +115,7 @@ public class Main {
 		String matricula = scan.nextLine();
 		for(Aluno aluno : alunos) {
 			if(aluno.getMatricula().equals(matricula)) {
-				System.out.println("Aluno: " + aluno.toString());
+				System.out.println("\nAluno: " + aluno.toString());
 				return;
 			}
 		}
@@ -119,8 +127,45 @@ public class Main {
 	 * Caso se tente cadastrar um novo grupo com o mesmo nome de um grupo já existente, uma mensagem de erro ocorrerá.
 	 */
 	public static void cadastrarGrupo() {
-		System.out.println("Grupo: ");
+		System.out.print("Grupo: ");
 		String nomeGrupo = scan.nextLine();
+		
+		Grupo aux = new Grupo(nomeGrupo);
+		
+		if(grupos.contains(aux)) {
+			System.out.println("GRUPO JÁ CADASTRADO!\n");
+		}
+		else {
+			grupos.add(aux);
+			System.out.println("CADASTRO REALIZADO!\n");
+		}		
+	}
+	
+	public static void alocarAluno() {
+		System.out.print("(A)locar Aluno ou (I)mprimir Grupo? ");
+		String op = scan.nextLine().toUpperCase();
+		
+		if(op.equals("A")) {
+			System.out.print("Matricula: ");
+			String matricula = scan.nextLine();
+			System.out.print("Grupo: ");
+			String grupo = scan.nextLine();
+		}
+		else if(op.equals("I")) {
+			System.out.print("Grupo: ");
+			String grupo = scan.nextLine();
+			
+			Grupo aux = new Grupo(grupo);
+			if(grupos.contains(aux)) {
+				Iterator it = grupos.iterator();
+				while(it.hasNext()) {
+					System.out.println(it.next());
+				}
+			}
+		}
+		else {
+			System.out.println("OPÇÃO INVÁLIDA!\n");
+		}
 	}
 	
 //	public static void exibir() {

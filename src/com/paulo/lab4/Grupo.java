@@ -29,6 +29,9 @@ public class Grupo {
 	 * @param tema : nome do grupo.
 	 */
 	public Grupo(String tema) {
+		if(tema.trim().isEmpty())
+			throw new IllegalArgumentException("Tema do grupo inválido!");
+		
 		this.tema = tema;
 	}
 	

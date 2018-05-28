@@ -40,7 +40,14 @@ public class Aluno {
 	 * @param nome : nome do aluno.
 	 * @param curso : curso do aluno.
 	 */
-	public Aluno(String matricula, String nome, String curso) {
+	public Aluno(String matricula, String nome, String curso) {		
+		if(matricula.trim().isEmpty())
+			throw new IllegalArgumentException("Matrícula inválida.");
+		if(nome.trim().isEmpty())
+			throw new IllegalArgumentException("Nome inválido.");
+		if(curso.trim().isEmpty())
+			throw new IllegalArgumentException("Curso inválido.");
+		
 		this.matricula = matricula;
 		this.nome = nome;
 		this.curso = curso;
