@@ -6,9 +6,9 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 /**
- * Representa um sistema de Controle de Alunos, contém alguns métodos auxiliares que realizam a leitura de
- * dados, tratamento de exceções, e assim os dados tratados são passados para os métodos das Classes 
- * auxiliares para concretizar a operação.
+ * Representa um sistema de Controle de Alunos, contém alguns métodos auxiliares que realizam a leitura de dados, 
+ * tratamento de exceções, e assim os dados tratados são passados para os métodos das Classes auxiliares para 
+ * concretizar a/as operação/operações.
  * 
  * @author Paulo Mendes da Silva Júnior - 117210922
  * 
