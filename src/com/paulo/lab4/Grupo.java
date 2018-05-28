@@ -30,6 +30,8 @@ public class Grupo {
 	 * @param tema : nome do grupo.
 	 */
 	public Grupo(String tema) {
+		if(tema == null)
+			throw new NullPointerException("Tema inválido!");
 		if(tema.trim().isEmpty())
 			throw new IllegalArgumentException("Tema do grupo inválido!");
 		

@@ -16,6 +16,10 @@ import java.util.Scanner;
 
 public class Main {
 	
+	/**
+	 * Constantes que são responsáveis pela elegância do método main e funcionam como chaves de seleção para as
+	 * operações do sistema.
+	 */
 	private static final String CADASTRAR = "C";
 	private static final String EXIBIR = "E";
 	private static final String NOVOGRUPO = "N";
@@ -24,11 +28,26 @@ public class Main {
 	private static final String IMPRIMIRALUNOS = "I";
 	private static final String SAIR = "O";
 	
+	/**
+	 * Objeto Scanner que realiza as operações de leitura de dados do teclado.
+	 */
 	private static Scanner scan = new Scanner(System.in);
 	
+	/**
+	 * Mapa que armazena todos os alunos cadastrados no sistema.
+	 */
 	private static HashMap<String, Aluno> alunos = new HashMap<>();
+	
+	/**
+	 * Mapa que armazena todos os grupos cadastrados no sistema.
+	 */
 	private static HashMap<String, Grupo> grupos = new HashMap<>();
+	
+	/**
+	 * Lista sequencial que armazena todos os registros de alunos que responderam questões.
+	 */
 	private static ArrayList<Aluno> registro = new ArrayList<>();
+	
 	
 	public static void main(String[] args) {	
 		boolean continua = true;
@@ -134,7 +153,8 @@ public class Main {
 	
 	/**
 	 * Cria um novo Grupo a partir do seu tema(nome).
-	 * Caso se tente cadastrar um novo grupo com o mesmo nome de um grupo já existente, uma mensagem de erro ocorrerá.
+	 * Caso se tente cadastrar um novo grupo com o mesmo nome de um grupo já existente, uma mensagem de erro 
+	 * ocorrerá.
 	 */
 	public static void cadastrarGrupo() {
 		System.out.print("Grupo: ");
@@ -205,7 +225,8 @@ public class Main {
 	
 	/**
 	 * Método responsável por registrar um aluno que já respondeu questões no quadro.
-	 * Caso o aluno já tenha sido registrado ou o matrícula passada não esteja cadastrada no sistema, o usuário é notificado.
+	 * Caso o aluno já tenha sido registrado ou o matrícula passada não esteja cadastrada no sistema, o 
+	 * usuário é notificado.
 	 */
 	public static void registrarAlunoQueRespondeu() {
 		System.out.print("Matrícula: ");

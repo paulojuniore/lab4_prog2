@@ -33,7 +33,9 @@ public class Aluno {
 	 * @param nome : nome do aluno.
 	 * @param curso : curso do aluno.
 	 */
-	public Aluno(String matricula, String nome, String curso) {		
+	public Aluno(String matricula, String nome, String curso) {	
+		if(matricula == null || nome == null || curso == null)
+			throw new NullPointerException("Dados inválidos.");
 		if(matricula.trim().isEmpty())
 			throw new IllegalArgumentException("Matrícula inválida.");
 		if(nome.trim().isEmpty())
