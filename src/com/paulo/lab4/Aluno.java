@@ -1,7 +1,5 @@
 package com.paulo.lab4;
 
-import java.util.HashSet;
-
 /**
  * Representa um aluno.
  * Todo aluno possui uma matricula, nome, curso e grupos de estudo associados.
@@ -27,14 +25,9 @@ public class Aluno {
 	 */
 	private String curso;
 	
-	/**
-	 * Representa um conjunto de grupos que um aluno pode ter, no formato de uma coleção Set.
-	 */
-	private HashSet<Grupo> grupos = new HashSet<>();
-	
 	
 	/**
-	 * Constrói um Aluno, que possui como parâmetos, a matricula, o nome e o curso do aluno.
+	 * Constrói um Aluno, que possui como parâmetros: matricula, nome e o curso do aluno.
 	 * 
 	 * @param matricula : matrícula do aluno.
 	 * @param nome : nome do aluno.

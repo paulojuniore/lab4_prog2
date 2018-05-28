@@ -1,5 +1,6 @@
 package com.paulo.lab4;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -33,6 +34,7 @@ public class Grupo {
 			throw new IllegalArgumentException("Tema do grupo inválido!");
 		
 		this.tema = tema;
+		this.alunos = new HashSet<>();
 	}
 	
 	/**
@@ -45,7 +47,27 @@ public class Grupo {
 	}
 	
 	/**
+	 * Retorna o conjunto de alunos de um grupo.
+	 * 
+	 * @return : conjunto de alunos de um grupo específico.
+	 */
+	public Set<Aluno> getAlunos() {
+		return alunos;
+	}
+	
+	/**
+	 * Adiciona um aluno a um grupo de alunos.
+	 * 
+	 * @param aluno : objeto Aluno que contém matrícula, nome e curso. Todos já validados.
+	 */
+	public void adicionaAluno(Aluno aluno) {
+		alunos.add(aluno);
+	}
+	
+	/**
 	 * Gera um identificar único para cada item inserido na coleção HashSet, através do Hashing.
+	 * 
+	 * @return : identificador único de um grupo a partir de seu tema.
 	 */
 	@Override
 	public int hashCode() {
@@ -55,6 +77,11 @@ public class Grupo {
 		return result;
 	}
 
+	/**
+	 * Verifica se dois grupos são iguais. Dois grupos são iguais se possuem o mesmo nome.
+	 * 
+	 * @return : valor boleano que representa se dois objetos são iguais ou não. true/false
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

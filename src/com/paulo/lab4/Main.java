@@ -1,9 +1,9 @@
 package com.paulo.lab4;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Set;
 
 /**
  * Representa um sistema de Controle de Alunos, contém alguns métodos auxiliares que realizam a leitura de
@@ -26,11 +26,11 @@ public class Main {
 	
 	private static Scanner scan = new Scanner(System.in);
 	
-	private static HashSet<Aluno> alunos = new HashSet<Aluno>();
-	private static HashSet<Grupo> grupos = new HashSet<Grupo>();
+	private static HashMap<String, Aluno> alunos = new HashMap<>();
+	private static HashMap<String, Grupo> grupos = new HashMap<>();
+	private static ArrayList<Aluno> registro = new ArrayList<>();
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {	
 		boolean continua = true;
 		
 		while(continua) {
@@ -53,6 +53,14 @@ public class Main {
 				case(ALOCARALUNO):
 					alocarAluno();
 					break;
+					
+				case(REGISTRARALUNO):
+					registrarAlunoQueRespondeu();
+					break;
+					
+				case(IMPRIMIRALUNOS):
+					imprimirAlunos();
+					break;
 			
 				case(SAIR):
 					continua = false;
@@ -62,8 +70,7 @@ public class Main {
 					System.out.println("OPÇÃO INVÁLIDA!\n");
 					break;
 			}
-		}
-		
+		}	
 	}
 	
 	/**
@@ -88,6 +95,7 @@ public class Main {
 	/**
 	 * Exibe o menu com a requisição dos dados para cadastrar um novo aluno.
 	 * Caso a mesma matrícula seja inserida novamente uma mensagem de erro é exibida.
+	 * 
 	 */
 	public static void menuCadastrar() {
 		System.out.print("Matrícula: ");
@@ -97,11 +105,11 @@ public class Main {
 		System.out.print("Curso: ");
 		String curso = scan.nextLine();
 		
-		Aluno aluno = new Aluno(matricula, nome, curso);
-		if(alunos.contains(aluno))
+		if(alunos.containsKey(matricula))
 			System.out.println("MATRÍCULA JÁ CADASTRADA!\n");
 		else {
-			alunos.add(aluno);
+			Aluno aluno = new Aluno(matricula, nome, curso);
+			alunos.put(matricula, aluno);
 			System.out.println("CADASTRO REALIZADO!\n");
 		}
 	}
@@ -109,38 +117,43 @@ public class Main {
 	/**
 	 * Exibe um aluno que já foi cadastrado, tendo como entrada a sua matrícula.
 	 * Caso uma matrícula não cadastrada seja inserida, uma mensagem de erro será exibida.
+	 * 
 	 */
 	public static void exibir() {
 		System.out.print("Matrícula: ");
 		String matricula = scan.nextLine();
-		for(Aluno aluno : alunos) {
-			if(aluno.getMatricula().equals(matricula)) {
-				System.out.println("\nAluno: " + aluno.toString());
-				return;
-			}
+		if(alunos.containsKey(matricula)) {
+			System.out.println(alunos.get(matricula).toString());
 		}
-		System.out.println("Aluno não cadastrado.\n");
+		else {
+			System.out.println("Aluno não cadastrado.\n");
+		}
 	}
 	
 	/**
 	 * Cria um novo Grupo a partir do seu tema(nome).
 	 * Caso se tente cadastrar um novo grupo com o mesmo nome de um grupo já existente, uma mensagem de erro ocorrerá.
+	 * 
 	 */
 	public static void cadastrarGrupo() {
 		System.out.print("Grupo: ");
 		String nomeGrupo = scan.nextLine();
 		
-		Grupo aux = new Grupo(nomeGrupo);
-		
-		if(grupos.contains(aux)) {
+		if(grupos.containsKey(nomeGrupo)) {
 			System.out.println("GRUPO JÁ CADASTRADO!\n");
 		}
 		else {
-			grupos.add(aux);
+			Grupo aux = new Grupo(nomeGrupo);
+			grupos.put(nomeGrupo, aux);
 			System.out.println("CADASTRO REALIZADO!\n");
 		}		
 	}
 	
+	/**
+	 * Aloca um aluno já existente em um grupo já existente. Também pode imprimir os alunos que compõem um grupo.
+	 * Caso tente adicionar um aluno não cadastrado a um grupo, mensagens de erro são exibidas.
+	 * 
+	 */
 	public static void alocarAluno() {
 		System.out.print("(A)locar Aluno ou (I)mprimir Grupo? ");
 		String op = scan.nextLine().toUpperCase();
@@ -150,29 +163,74 @@ public class Main {
 			String matricula = scan.nextLine();
 			System.out.print("Grupo: ");
 			String grupo = scan.nextLine();
+			
+			if(!alunos.containsKey(matricula))
+				System.out.println("Aluno não cadastrado!\n");
+			else if(!grupos.containsKey(grupo))
+				System.out.println("Grupo não cadastrado!\n");
+			else {
+				Grupo g = grupos.get(grupo);
+				Aluno a = alunos.get(matricula);
+				g.adicionaAluno(a);
+				System.out.println("ALUNO ALOCADO!\n");
+			}
 		}
+		
 		else if(op.equals("I")) {
 			System.out.print("Grupo: ");
 			String grupo = scan.nextLine();
 			
-			Grupo aux = new Grupo(grupo);
-			if(grupos.contains(aux)) {
-				Iterator it = grupos.iterator();
+			if(grupos.containsKey(grupo)) {
+				Grupo g = grupos.get(grupo);
+				Iterator<Aluno> it = g.getAlunos().iterator();
+				System.out.println("\nAlunos do grupo " + grupo + ":");
 				while(it.hasNext()) {
-					System.out.println(it.next());
+					System.out.print("* " + it.next());
 				}
+				System.out.println();
 			}
-		}
+			else {
+				System.out.println("Grupo não cadastrado.\n");
+			}
+		}	
+		
 		else {
 			System.out.println("OPÇÃO INVÁLIDA!\n");
 		}
 	}
 	
-//	public static void exibir() {
-//		Iterator it = alunos.iterator();
-//		while(it.hasNext()) {
-//			System.out.print(it.next());
-//		}
-//	}
-
+	/**
+	 * Método responsável por registrar um aluno que já respondeu questões no quadro.
+	 * Caso o aluno já tenha sido registrado ou o matrícula passada não esteja cadastrada no sistema, o usuário é notificado.
+	 * 
+	 */
+	public static void registrarAlunoQueRespondeu() {
+		System.out.print("Matrícula: ");
+		String matricula = scan.nextLine();
+		if(alunos.containsKey(matricula)) {
+			if(registro.contains(alunos.get(matricula))) {
+				System.out.println("Aluno já registrado.\n");
+			}
+			else {
+				registro.add(alunos.get(matricula));
+				System.out.println("ALUNO REGISTRADO!\n");
+			}
+		}
+		else {
+			System.out.println("Aluno não cadastrado.\n");
+		}
+	}
+	
+	/**
+	 * Imprime o registro de alunos que já responderam a questões no quadro.
+	 * 
+	 */
+	public static void imprimirAlunos() {
+		System.out.println("Alunos:");
+		for(int i = 0; i < registro.size(); i++) {
+			System.out.print(i+1 + ". " + registro.get(i));
+		}
+		System.out.println();
+	}
+	
 }
