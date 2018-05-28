@@ -95,7 +95,6 @@ public class Main {
 	/**
 	 * Exibe o menu com a requisição dos dados para cadastrar um novo aluno.
 	 * Caso a mesma matrícula seja inserida novamente uma mensagem de erro é exibida.
-	 * 
 	 */
 	public static void menuCadastrar() {
 		System.out.print("Matrícula: ");
@@ -104,20 +103,23 @@ public class Main {
 		String nome = scan.nextLine();
 		System.out.print("Curso: ");
 		String curso = scan.nextLine();
-		
-		if(alunos.containsKey(matricula))
-			System.out.println("MATRÍCULA JÁ CADASTRADA!\n");
-		else {
-			Aluno aluno = new Aluno(matricula, nome, curso);
-			alunos.put(matricula, aluno);
-			System.out.println("CADASTRO REALIZADO!\n");
+		try {
+			if(alunos.containsKey(matricula))
+				System.out.println("MATRÍCULA JÁ CADASTRADA!\n");
+			else {
+				Aluno aluno = new Aluno(matricula, nome, curso);
+				alunos.put(matricula, aluno);
+				System.out.println("CADASTRO REALIZADO!\n");
+			}
 		}
+		catch(IllegalArgumentException e) {
+			System.out.println(e.getMessage() + System.lineSeparator());
+		}	
 	}
 	
 	/**
 	 * Exibe um aluno que já foi cadastrado, tendo como entrada a sua matrícula.
 	 * Caso uma matrícula não cadastrada seja inserida, uma mensagem de erro será exibida.
-	 * 
 	 */
 	public static void exibir() {
 		System.out.print("Matrícula: ");
@@ -133,26 +135,28 @@ public class Main {
 	/**
 	 * Cria um novo Grupo a partir do seu tema(nome).
 	 * Caso se tente cadastrar um novo grupo com o mesmo nome de um grupo já existente, uma mensagem de erro ocorrerá.
-	 * 
 	 */
 	public static void cadastrarGrupo() {
 		System.out.print("Grupo: ");
 		String nomeGrupo = scan.nextLine();
-		
-		if(grupos.containsKey(nomeGrupo)) {
-			System.out.println("GRUPO JÁ CADASTRADO!\n");
+		try {
+			if(grupos.containsKey(nomeGrupo)) {
+				System.out.println("GRUPO JÁ CADASTRADO!\n");
+			}
+			else {
+				Grupo aux = new Grupo(nomeGrupo);
+				grupos.put(nomeGrupo, aux);
+				System.out.println("CADASTRO REALIZADO!\n");
+			}		
 		}
-		else {
-			Grupo aux = new Grupo(nomeGrupo);
-			grupos.put(nomeGrupo, aux);
-			System.out.println("CADASTRO REALIZADO!\n");
-		}		
+		catch(IllegalArgumentException e) {
+			System.out.println(e.getMessage() + System.lineSeparator());
+		}	
 	}
 	
 	/**
 	 * Aloca um aluno já existente em um grupo já existente. Também pode imprimir os alunos que compõem um grupo.
 	 * Caso tente adicionar um aluno não cadastrado a um grupo, mensagens de erro são exibidas.
-	 * 
 	 */
 	public static void alocarAluno() {
 		System.out.print("(A)locar Aluno ou (I)mprimir Grupo? ");
@@ -202,7 +206,6 @@ public class Main {
 	/**
 	 * Método responsável por registrar um aluno que já respondeu questões no quadro.
 	 * Caso o aluno já tenha sido registrado ou o matrícula passada não esteja cadastrada no sistema, o usuário é notificado.
-	 * 
 	 */
 	public static void registrarAlunoQueRespondeu() {
 		System.out.print("Matrícula: ");
@@ -223,7 +226,6 @@ public class Main {
 	
 	/**
 	 * Imprime o registro de alunos que já responderam a questões no quadro.
-	 * 
 	 */
 	public static void imprimirAlunos() {
 		System.out.println("Alunos:");

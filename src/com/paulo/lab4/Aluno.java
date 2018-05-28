@@ -96,9 +96,9 @@ public class Aluno {
 	}
 	
 	/**
-	 * Compara se dois objetos do tipo Aluno são iguais.
+	 * Compara se dois objetos do tipo Aluno são iguais. Dois objetos Aluno não iguais se, e somente se, suas matrículas forem iguais.
 	 * 
-	 * @return : boolean que representa se os dois objetos tem valores iguais.
+	 * @return : boolean que representa se os dois objetos Aluno tem matrículas iguais.
 	 */
 	@Override
 	public boolean equals(Object obj) {
