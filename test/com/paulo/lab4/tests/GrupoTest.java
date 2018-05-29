@@ -28,7 +28,7 @@ public class GrupoTest {
 	 * Instanciação de alguns Grupos e Alunos. todos com dados válidos.
 	 */
 	@Before
-	public void criaGrupos() {
+	public void criaGruposeAlunos() {
 		g1 = new Grupo("Cálculo I");
 		g2 = new Grupo("Cálculo I");
 		g3 = new Grupo("Mecânica dos Fluídos");
