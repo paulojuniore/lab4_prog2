@@ -17,8 +17,8 @@ import java.util.Scanner;
 public class Main {
 	
 	/**
-	 * Constantes que são responsáveis pela elegância do método main e funcionam como chaves de seleção para as
-	 * operações do sistema.
+	 * Constantes que são responsáveis pela singularidade do método main e funcionam como chaves de seleção 
+	 * para as operações do sistema.
 	 */
 	private static final String CADASTRAR = "C";
 	private static final String EXIBIR = "E";

@@ -6,7 +6,6 @@ import org.junit.Test;
 import com.paulo.lab4.Aluno;
 
 /**
- * 
  * Classe de testes unitários da classe Aluno utilizando o JUnit.
  * 
  * @author Paulo Mendes da Silva Júnior - 117210922

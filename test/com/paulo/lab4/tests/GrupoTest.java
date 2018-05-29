@@ -1,13 +1,13 @@
 package com.paulo.lab4.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import org.junit.Before;
 import org.junit.Test;
 import com.paulo.lab4.Aluno;
 import com.paulo.lab4.Grupo;
 
 /**
- * 
  * Classe de testes unitário da classe Grupo utilizando o JUnit.
  * 
  * @author Paulo Mendes da Silva Júnior.
@@ -78,7 +78,8 @@ public class GrupoTest {
 	 */
 	@Test
 	public void testEqualsObject() {
-		assertEquals(g1, g1);
+		assertEquals(g1, g2);
+		assertNotEquals(g1, g3);
 	}
 
 }
