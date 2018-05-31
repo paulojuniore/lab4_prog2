@@ -1,8 +1,5 @@
 package com.paulo.lab4;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -34,20 +31,9 @@ public class Main {
 	private static Scanner scan = new Scanner(System.in);
 	
 	/**
-	 * Mapa que armazena todos os alunos cadastrados no sistema.
+	 * Sistema de controle que é responsável por armazenar todos os alunos, grupos e registro do sistema.
 	 */
-	private static HashMap<String, Aluno> alunos = new HashMap<>();
-	
-	/**
-	 * Mapa que armazena todos os grupos cadastrados no sistema.
-	 */
-	private static HashMap<String, Grupo> grupos = new HashMap<>();
-	
-	/**
-	 * Lista sequencial que armazena todos os registros de alunos que responderam questões.
-	 */
-	private static ArrayList<Aluno> registro = new ArrayList<>();
-	
+	private static Controle sistema = new Controle();
 	
 	public static void main(String[] args) {	
 		boolean continua = true;
@@ -124,13 +110,7 @@ public class Main {
 		System.out.print("Curso: ");
 		String curso = scan.nextLine();
 		try {
-			if(alunos.containsKey(matricula))
-				System.out.println("MATRÍCULA JÁ CADASTRADA!\n");
-			else {
-				Aluno aluno = new Aluno(matricula, nome, curso);
-				alunos.put(matricula, aluno);
-				System.out.println("CADASTRO REALIZADO!\n");
-			}
+			System.out.println(sistema.cadastraAluno(matricula, nome, curso));
 		}
 		catch(IllegalArgumentException e) {
 			System.out.println(e.getMessage() + System.lineSeparator());
@@ -144,12 +124,7 @@ public class Main {
 	public static void exibir() {
 		System.out.print("Matrícula: ");
 		String matricula = scan.nextLine();
-		if(alunos.containsKey(matricula)) {
-			System.out.println(alunos.get(matricula).toString());
-		}
-		else {
-			System.out.println("Aluno não cadastrado.\n");
-		}
+		System.out.println(sistema.exibirAluno(matricula));
 	}
 	
 	/**
@@ -161,14 +136,7 @@ public class Main {
 		System.out.print("Grupo: ");
 		String nomeGrupo = scan.nextLine();
 		try {
-			if(grupos.containsKey(nomeGrupo)) {
-				System.out.println("GRUPO JÁ CADASTRADO!\n");
-			}
-			else {
-				Grupo aux = new Grupo(nomeGrupo);
-				grupos.put(nomeGrupo, aux);
-				System.out.println("CADASTRO REALIZADO!\n");
-			}		
+			System.out.println(sistema.cadastrarGrupo(nomeGrupo));
 		}
 		catch(IllegalArgumentException e) {
 			System.out.println(e.getMessage() + System.lineSeparator());
@@ -181,44 +149,19 @@ public class Main {
 	 */
 	public static void alocarAluno() {
 		System.out.print("(A)locar Aluno ou (I)mprimir Grupo? ");
-		String op = scan.nextLine().toUpperCase();
-		
+		String op = scan.nextLine().toUpperCase();	
 		if(op.equals("A")) {
 			System.out.print("Matricula: ");
 			String matricula = scan.nextLine();
 			System.out.print("Grupo: ");
 			String grupo = scan.nextLine();
-			
-			if(!alunos.containsKey(matricula))
-				System.out.println("Aluno não cadastrado!\n");
-			else if(!grupos.containsKey(grupo))
-				System.out.println("Grupo não cadastrado!\n");
-			else {
-				Grupo g = grupos.get(grupo);
-				Aluno a = alunos.get(matricula);
-				g.adicionaAluno(a);
-				System.out.println("ALUNO ALOCADO!\n");
-			}
+			System.out.println(sistema.alocarAlunoEmGrupo(matricula, grupo));
 		}
-		
 		else if(op.equals("I")) {
 			System.out.print("Grupo: ");
 			String grupo = scan.nextLine();
-			
-			if(grupos.containsKey(grupo)) {
-				Grupo g = grupos.get(grupo);
-				Iterator<Aluno> it = g.getAlunos().iterator();
-				System.out.println("\nAlunos do grupo " + grupo + ":");
-				while(it.hasNext()) {
-					System.out.print("* " + it.next());
-				}
-				System.out.println();
-			}
-			else {
-				System.out.println("Grupo não cadastrado.\n");
-			}
+			System.out.println(sistema.imprimirAlunosDeGrupo(grupo));
 		}	
-		
 		else {
 			System.out.println("OPÇÃO INVÁLIDA!\n");
 		}
@@ -232,29 +175,14 @@ public class Main {
 	public static void registrarAlunoQueRespondeu() {
 		System.out.print("Matrícula: ");
 		String matricula = scan.nextLine();
-		if(alunos.containsKey(matricula)) {
-			if(registro.contains(alunos.get(matricula))) {
-				System.out.println("Aluno já registrado.\n");
-			}
-			else {
-				registro.add(alunos.get(matricula));
-				System.out.println("ALUNO REGISTRADO!\n");
-			}
-		}
-		else {
-			System.out.println("Aluno não cadastrado.\n");
-		}
+		System.out.println(sistema.registrarAlunoQueRespondeu(matricula));
 	}
 	
 	/**
 	 * Imprime o registro de alunos que já responderam a questões no quadro.
 	 */
 	public static void imprimirAlunos() {
-		System.out.println("Alunos:");
-		for(int i = 0; i < registro.size(); i++) {
-			System.out.print(i+1 + ". " + registro.get(i));
-		}
-		System.out.println();
+		System.out.println(sistema.imprimirRegistroDeAlunos());
 	}
 	
 }
