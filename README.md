@@ -14,7 +14,7 @@
   <li>Imprimir Alunos que responderam questões no quadro</li>
 </ol>
 
-<i>O sistema em questão inclui conceitos de encapsulamento, uso de coleções genéricas(HashMap, HashSet e ArrayList), bem como outros
+<i>O sistema em questão inclui conceitos de encapsulamento, tratamento de exceções(try, catch e throws), uso de coleções genéricas(HashMap, HashSet e ArrayList), bem como outros
 conceitos importantes da Programação Orientada a Objetos na linguagem JAVA.</i>
 
 <h3>Lab concluído!</b>
