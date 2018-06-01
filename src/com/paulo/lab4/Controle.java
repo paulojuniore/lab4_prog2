@@ -17,17 +17,17 @@ public class Controle {
 	/**
 	 * Mapa que armazena todos os alunos cadastrados no sistema.
 	 */
-	private static HashMap<String, Aluno> alunos = new HashMap<>();
+	private HashMap<String, Aluno> alunos = new HashMap<>();
 	
 	/**
 	 * Mapa que armazena todos os grupos cadastrados no sistema.
 	 */
-	private static HashMap<String, Grupo> grupos = new HashMap<>();
+	private HashMap<String, Grupo> grupos = new HashMap<>();
 	
 	/**
 	 * Lista sequencial que armazena todos os registros de alunos que responderam questões.
 	 */
-	private static ArrayList<Aluno> registro = new ArrayList<>();
+	private ArrayList<Aluno> registro = new ArrayList<>();
 	
 	
 	/**
@@ -124,13 +124,18 @@ public class Controle {
 	public String imprimirAlunosDeGrupo(String nomeDoGrupo) {
 		if(grupos.containsKey(nomeDoGrupo)) {
 			Grupo g = grupos.get(nomeDoGrupo);
-			Iterator<Aluno> it = g.getAlunos().iterator();
-			System.out.println("\nAlunos do grupo " + nomeDoGrupo + ":");
-			String saida = "";
-			while(it.hasNext()) {
-				saida += "* " + it.next();
+			if(g.getAlunos().isEmpty()) {
+				return "O grupo está vazio!" + System.lineSeparator();
 			}
-			return saida;
+			else {
+				Iterator<Aluno> it = g.getAlunos().iterator();
+				String saida = "";
+				saida += "\nAlunos do grupo " + nomeDoGrupo + ":\n";
+				while(it.hasNext()) {
+					saida += "* " + it.next();
+				}
+				return saida;
+			}	
 		}
 		else {
 			return "Grupo não cadastrado." + System.lineSeparator();
@@ -166,12 +171,18 @@ public class Controle {
 	 * @return : String que representa o registro de alunos que responderam questões no quadro.
 	 */
 	public String imprimirRegistroDeAlunos() {
-		String saida = "";
-		System.out.println("Alunos:");
-		for(int i = 0; i < registro.size(); i++) {
-			saida += i+1 + ". " + registro.get(i);
+		if(registro.isEmpty()) {
+			return "O registro está vazio!" + System.lineSeparator();
 		}
-		return saida;
+		else {
+			String saida = "";
+			saida += "\nAlunos:\n";
+			for(int i = 0; i < registro.size(); i++) {
+				saida += i+1 + ". " + registro.get(i);
+			}
+			return saida;
+		}
+		
 	}
 
 }

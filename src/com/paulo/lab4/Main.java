@@ -74,6 +74,7 @@ public class Main {
 				default:
 					System.out.println("OPÇÃO INVÁLIDA!\n");
 					break;
+					
 			}
 		}	
 	}

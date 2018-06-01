@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotEquals;
 import org.junit.Before;
 import org.junit.Test;
 import com.paulo.lab4.Aluno;
+import com.paulo.lab4.Controle;
 import com.paulo.lab4.Grupo;
 
 /**
