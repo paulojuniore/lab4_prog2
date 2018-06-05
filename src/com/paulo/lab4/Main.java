@@ -135,7 +135,7 @@ public class Main {
 	 */
 	public static void cadastrarGrupo() {
 		System.out.print("Grupo: ");
-		String nomeGrupo = scan.nextLine();
+		String nomeGrupo = scan.nextLine().toLowerCase();
 		try {
 			System.out.println(sistema.cadastrarGrupo(nomeGrupo));
 		}
@@ -155,12 +155,12 @@ public class Main {
 			System.out.print("Matricula: ");
 			String matricula = scan.nextLine();
 			System.out.print("Grupo: ");
-			String grupo = scan.nextLine();
+			String grupo = scan.nextLine().toLowerCase();
 			System.out.println(sistema.alocarAlunoEmGrupo(matricula, grupo));
 		}
 		else if(op.equals("I")) {
 			System.out.print("Grupo: ");
-			String grupo = scan.nextLine();
+			String grupo = scan.nextLine().toLowerCase();
 			System.out.println(sistema.imprimirAlunosDeGrupo(grupo));
 		}	
 		else {

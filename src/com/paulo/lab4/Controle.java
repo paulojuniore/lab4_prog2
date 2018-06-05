@@ -44,8 +44,9 @@ public class Controle {
 	 * @throws IllegalArgumentException : Ocorre caso valores inválidos sejam passados como argumentos. ex: String com espaços vazios representando a matrícula.
 	 */
 	public String cadastraAluno(String matricula, String nome, String curso) throws NullPointerException, IllegalArgumentException  {
-		if(alunos.containsKey(matricula))
+		if(alunos.containsKey(matricula)) {
 			return "MATRÍCULA JÁ CADASTRADA!" + System.lineSeparator();
+		}
 		else {
 			Aluno aluno = new Aluno(matricula, nome, curso);
 			alunos.put(matricula, aluno);
@@ -80,7 +81,7 @@ public class Controle {
 	 * @throws NullPointerException : Ocorre caso valores (null) sejam passados como argumentos ao construtor de um Grupo.
 	 * @throws IllegalArgumentException : Ocorre caso um valor inválido seja passado como argumento. ex: String com espaços vazios representando o tema do grupo.  
 	 */
-	public String cadastrarGrupo(String nomeDoGrupo) throws NullPointerException, IllegalArgumentException{
+	public String cadastrarGrupo(String nomeDoGrupo) throws NullPointerException, IllegalArgumentException {
 		if(grupos.containsKey(nomeDoGrupo)) {
 			return "GRUPO JÁ CADASTRADO!" + System.lineSeparator();
 		}
@@ -101,10 +102,12 @@ public class Controle {
 	 * @return : retorna uma mensagem indicando o sucesso/fracasso na operação.
 	 */
 	public String alocarAlunoEmGrupo(String matricula, String grupo) {
-		if(!alunos.containsKey(matricula))
+		if(!alunos.containsKey(matricula)) {
 			return "Aluno não cadastrado!" + System.lineSeparator();
-		else if(!grupos.containsKey(grupo))
+		}
+		else if(!grupos.containsKey(grupo)) {
 			return "Grupo não cadastrado!" + System.lineSeparator();
+		}
 		else {
 			Grupo g = grupos.get(grupo);
 			Aluno a = alunos.get(matricula);
@@ -123,11 +126,12 @@ public class Controle {
 	 */
 	public String imprimirAlunosDeGrupo(String nomeDoGrupo) {
 		if(grupos.containsKey(nomeDoGrupo)) {
-			Grupo g = grupos.get(nomeDoGrupo);
+			Grupo g = grupos.get(nomeDoGrupo);		
 			if(g.getAlunos().isEmpty()) {
 				return "O grupo está vazio!" + System.lineSeparator();
 			}
-			else {
+			else 
+			{
 				Iterator<Aluno> it = g.getAlunos().iterator();
 				String saida = "";
 				saida += "\nAlunos do grupo " + nomeDoGrupo + ":\n";
