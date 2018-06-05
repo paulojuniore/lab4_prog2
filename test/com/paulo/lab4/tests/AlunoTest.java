@@ -6,9 +6,9 @@ import org.junit.Test;
 import com.paulo.lab4.Aluno;
 
 /**
- * Classe de testes unitários da classe Aluno utilizando o JUnit.
+ * Classe de testes unitÃ¡rios da classe Aluno utilizando o JUnit.
  * 
- * @author Paulo Mendes da Silva Júnior - 117210922
+ * @author Paulo Mendes da Silva JÃºnior - 117210922
  *
  */
 
@@ -19,27 +19,27 @@ public class AlunoTest {
 	private Aluno a3;
 	
 	/**
-	 * Instanciação de alguns objetos Aluno.
+	 * InstanciaÃ§Ã£o de alguns objetos Aluno.
 	 */
 	@Before
 	public void criaAluno() {
-		a1 = new Aluno("117210943", "Pedro Viana", "Ciência da computação");
-		a2 = new Aluno("117201233", "Paulo Júnior", "Engenharia Elétrica");
-		a3 = new Aluno("117210943", "Ana Vilela", "Administração");
+		a1 = new Aluno("117210943", "Pedro Viana", "CiÃªncia da computaÃ§Ã£o");
+		a2 = new Aluno("117201233", "Paulo JÃºnior", "Engenharia ElÃ©trica");
+		a3 = new Aluno("117210943", "Ana Vilela", "AdministraÃ§Ã£o");
 	}
 	
 	/**
-	 * Instanciação de um Aluno com todos os seus parâmetros válidos.
+	 * InstanciaÃ§Ã£o de um Aluno com todos os seus parÃ¢metros vÃ¡lidos.
 	 */
 	@Test
 	public void testAluno() {
-		Aluno a = new Aluno("117210122", "Pedro Júlio", "Engenharia de materiais");
+		Aluno a = new Aluno("117210122", "Pedro JÃºlio", "Engenharia de materiais");
 	}
 	
 	/**
-	 * Criação de um Aluno com todos os parâmetros nulos. Ocorrerá um lançamento de exceção e a mesma será
-	 * tratada, e o programa não se encerrará inesperadamente.
-	 * OBS: O mesmo raciocínio se aplica a todos os parâmetros que podem lançar exceções.
+	 * CriaÃ§Ã£o de um Aluno com todos os parÃ¢metros nulos. OcorrerÃ¡ um lanÃ§amento de exceÃ§Ã£o e a mesma serÃ¡
+	 * tratada, e o programa nÃ£o se encerrarÃ¡ inesperadamente.
+	 * OBS: O mesmo raciocÃ­nio se aplica a todos os parÃ¢metros que podem lanÃ§ar exceÃ§Ãµes.
 	 */
 	@Test(expected=NullPointerException.class)
 	public void testCadastraAlunoTudoNulo() {
@@ -47,39 +47,39 @@ public class AlunoTest {
 	}
 
 	/**
-	 * Criação de um Aluno com a matrícula nula.
+	 * CriaÃ§Ã£o de um Aluno com a matrÃ­cula nula.
 	 */
 	@Test(expected=NullPointerException.class)
 	public void testCadastraAlunoMatriculaNula() {
-		Aluno aluno = new Aluno(null, "Paulo Mendes da Silva Júnior", "Engenharia Elétrica");
+		Aluno aluno = new Aluno(null, "Paulo Mendes da Silva JÃºnior", "Engenharia ElÃ©trica");
 	}
 	
 	/**
-	 * Criação de um Aluno com o nome nulo.
+	 * CriaÃ§Ã£o de um Aluno com o nome nulo.
 	 */
 	@Test(expected=NullPointerException.class)
 	public void testCadastraAlunoNomeNulo() {
-		Aluno aluno = new Aluno("117210913", null, "Administração");
+		Aluno aluno = new Aluno("117210913", null, "AdministraÃ§Ã£o");
 	}
 	
 	/**
-	 * Criação de um Aluno com o curso nulo. 
+	 * CriaÃ§Ã£o de um Aluno com o curso nulo. 
 	 */
 	@Test(expected=NullPointerException.class)
 	public void testCadastraAlunoCursoNulo() {
-		Aluno aluno = new Aluno("117210913", "Lionel Andrés Messi", null);
+		Aluno aluno = new Aluno("117210913", "Lionel AndrÃ©s Messi", null);
 	}
 	
 	/**
-	 * Criação de um Aluno com matrícula inválida.
+	 * CriaÃ§Ã£o de um Aluno com matrÃ­cula invÃ¡lida.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testCadastraAlunoMatriculaInvalida() {
-		Aluno aluno = new Aluno("   ", "Romero Britto de Araújo", "Arquitetura e Urbanismo");
+		Aluno aluno = new Aluno("   ", "Romero Britto de AraÃºjo", "Arquitetura e Urbanismo");
 	}
 	
 	/**
-	 * Criação de um Aluno com nome inválido.
+	 * CriaÃ§Ã£o de um Aluno com nome invÃ¡lido.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testCadastraAlunoNomeInvalido() {
@@ -87,16 +87,16 @@ public class AlunoTest {
 	}
 	
 	/**
-	 * Criação de um Aluno com curso inválido.
+	 * CriaÃ§Ã£o de um Aluno com curso invÃ¡lido.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testCadastraAlunoCursoInvalido() {
-		Aluno aluno = new Aluno("117201921", "Romero Britto de Araújo", "     ");
+		Aluno aluno = new Aluno("117201921", "Romero Britto de AraÃºjo", "     ");
 	}
 	
 	/**
-	 * Teste do método equals.
-	 * Obs: Dois Alunos são iguais se possuem a mesma matrícula.
+	 * Teste do mÃ©todo equals.
+	 * Obs: Dois Alunos sÃ£o iguais se possuem a mesma matrÃ­cula.
 	 */
 	@Test
 	public void testEqualsObject() {

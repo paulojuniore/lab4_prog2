@@ -12,7 +12,7 @@ import com.paulo.lab4.Grupo;
 /**
  * Classe de testes da classe Controle, utilizando o JUnit.
  * 
- * @author Paulo Mendes da Silva J˙nior - 117210922
+ * @author Paulo Mendes da Silva J√∫nior - 117210922
  *
  */
 
@@ -21,15 +21,15 @@ public class ControleTest {
 	private Controle sistema;
 	private Controle sistema2;
 	
-	private Aluno a1 = new Aluno("120", "Paulo", "ComputaÁ„o");
-	private Aluno a2 = new Aluno("150", "Pedro", "ElÈtrica");
-	private Aluno a3 = new Aluno("200", "Ana", "Engenharia AgrÌcola");
+	private Aluno a1 = new Aluno("120", "Paulo", "Computa√ß√£o");
+	private Aluno a2 = new Aluno("150", "Pedro", "El√©trica");
+	private Aluno a3 = new Aluno("200", "Ana", "Engenharia Agr√≠cola");
 	
 	private Grupo g1 = new Grupo("Ed. Fisica");
 	private Grupo g2 = new Grupo("Calculo");
 	
 	/**
-	 * CriaÁ„o de dois Sistemas de Controle.
+	 * Cria√ß√£o de dois Sistemas de Controle.
 	 */
 	@Before
 	public void criaSistema() {
@@ -42,9 +42,9 @@ public class ControleTest {
 	 */
 	@Before
 	public void cadastraAluno() {
-		sistema.cadastraAluno("117210221", "Paulo Mendes", "ComputaÁ„o");
-		sistema.cadastraAluno("117210121", "VitÛria Alves", "Engenharia ElÈtrica");
-		sistema.cadastraAluno("112212323", "Samuel Pereira", "AdministraÁ„o");
+		sistema.cadastraAluno("117210221", "Paulo Mendes", "Computa√ß√£o");
+		sistema.cadastraAluno("117210121", "Vit√≥ria Alves", "Engenharia El√©trica");
+		sistema.cadastraAluno("112212323", "Samuel Pereira", "Administra√ß√£o");
 	}
 	
 	/**
@@ -57,41 +57,41 @@ public class ControleTest {
 	}
 	
 	/**
-	 * Testa o mÈtodo CadastraAluno(String nome, String matricula, String curso).
+	 * Testa o m√©todo CadastraAluno(String nome, String matricula, String curso).
 	 */
 	@Test
 	public void testCadastraAluno() {
 		assertEquals("CADASTRO REALIZADO!" + System.lineSeparator(), sistema.cadastraAluno("117210925", "Coisinha", "Arquitetura"));
-		assertEquals("MATRÕCULA J¡ CADASTRADA!" + System.lineSeparator(), sistema.cadastraAluno("117210221", "Junior", "FÌsica"));
+		assertEquals("MATR√çCULA J√Å CADASTRADA!" + System.lineSeparator(), sistema.cadastraAluno("117210221", "Junior", "F√≠sica"));
 	}
 
 	/**
-	 * Testa o mÈtodo Exibir Aluno, que exibe as informaÁıes de um aluno a partir da sua matrÌcula.
+	 * Testa o m√©todo Exibir Aluno, que exibe as informa√ß√µes de um aluno a partir da sua matr√≠cula.
 	 */
 	@Test
 	public void testExibirAluno() {
-		assertEquals("117210221 - Paulo Mendes - ComputaÁ„o" + System.lineSeparator(), sistema.exibirAluno("117210221"));
+		assertEquals("117210221 - Paulo Mendes - Computa√ß√£o" + System.lineSeparator(), sistema.exibirAluno("117210221"));
 	}
 	
 	/**
-	 * Testa o mÈtodo exibir aluno, caso a matrÌcula passada n„o esteja cadastrada no sistema.
+	 * Testa o m√©todo exibir aluno, caso a matr√≠cula passada n√£o esteja cadastrada no sistema.
 	 */
 	@Test
 	public void testExibirAlunoNaoExistente() {
-		assertEquals("Aluno n„o cadastrado." + System.lineSeparator(), sistema.exibirAluno("117210999"));
+		assertEquals("Aluno n√£o cadastrado." + System.lineSeparator(), sistema.exibirAluno("117210999"));
 	}
 
 	/**
-	 * Testa o mÈtodo cadastrar grupo. 
+	 * Testa o m√©todo cadastrar grupo. 
 	 */
 	@Test
 	public void testCadastrarGrupo() {
 		assertEquals("CADASTRO REALIZADO!" + System.lineSeparator(), sistema.cadastrarGrupo("Desenhos"));
-		assertEquals("GRUPO J¡ CADASTRADO!" + System.lineSeparator(), sistema.cadastrarGrupo("Calculo 1"));
+		assertEquals("GRUPO J√Å CADASTRADO!" + System.lineSeparator(), sistema.cadastrarGrupo("Calculo 1"));
 	}
 
 	/**
-	 * Testa o mÈtodo alocar um aluno em um grupo.
+	 * Testa o m√©todo alocar um aluno em um grupo.
 	 */
 	@Test
 	public void testAlocarAlunoExistenteEmGrupoExistente() {
@@ -100,77 +100,77 @@ public class ControleTest {
 	}
 	
 	/**
-	 * Testa o mÈtodo alocar aluno, com um aluno inexistente no sistema.
+	 * Testa o m√©todo alocar aluno, com um aluno inexistente no sistema.
 	 */
 	@Test
 	public void testAlocarAlunoNaoExistenteEmGrupoExistente() {
-		assertEquals("Aluno n„o cadastrado!" + System.lineSeparator(), sistema.alocarAlunoEmGrupo("900", "Calculo"));
+		assertEquals("Aluno n√£o cadastrado!" + System.lineSeparator(), sistema.alocarAlunoEmGrupo("900", "Calculo"));
 	}
 	
 	/**
-	 * Testa o mÈtodo alocar aluno em grupo, com um grupo inexistente no sistema.
+	 * Testa o m√©todo alocar aluno em grupo, com um grupo inexistente no sistema.
 	 */
 	@Test
 	public void testAlocarAlunoExistenteEmGrupoNaoExistente() {
-		assertEquals("Grupo n„o cadastrado!" + System.lineSeparator(), sistema.alocarAlunoEmGrupo("117210221", "Materiais"));
+		assertEquals("Grupo nÔøΩo cadastrado!" + System.lineSeparator(), sistema.alocarAlunoEmGrupo("117210221", "Materiais"));
 	}
 
 	/**
-	 * Testa o mÈtodo imprimir alunos de um grupo que foi cadastrado mas est· vazio.
+	 * Testa o m√©todo imprimir alunos de um grupo que foi cadastrado mas est√° vazio.
 	 */
 	@Test
 	public void testImprimirAlunosDeGrupoVazio() {
-		assertEquals("O grupo est· vazio!" + System.lineSeparator(), sistema.imprimirAlunosDeGrupo("Calculo 2"));
+		assertEquals("O grupo est√° vazio!" + System.lineSeparator(), sistema.imprimirAlunosDeGrupo("Calculo 2"));
 	}
 	
 	/**
-	 * Testa o mÈtodo imprimir alunos de um grupo que n„o foi cadastrado.
+	 * Testa o m√©todo imprimir alunos de um grupo que n√£o foi cadastrado.
 	 */
 	@Test
 	public void testImprimirAlunosDeGrupoInexistente() {
-		assertEquals("Grupo n„o cadastrado." + System.lineSeparator(), sistema.imprimirAlunosDeGrupo("Artes"));
+		assertEquals("Grupo n√£o cadastrado." + System.lineSeparator(), sistema.imprimirAlunosDeGrupo("Artes"));
 	}
 	
 	/**
-	 * Testa o mÈtodo imprimir alunos de um grupo que foi cadastrado e contÈm alunos.
+	 * Testa o m√©todo imprimir alunos de um grupo que foi cadastrado e cont√©m alunos.
 	 */
 	@Test
 	public void testImprimirAlunosDeGrupoValidoNaoVazio() {
 		testAlocarAlunoExistenteEmGrupoExistente();
 		System.out.println(sistema.imprimirAlunosDeGrupo("Calculo 1"));
-		assertEquals("\n" + "Alunos do grupo Calculo 1:\n" + "* 117210121 - VitÛria Alves - Engenharia ElÈtrica\n" +
-				"* 117210221 - Paulo Mendes - ComputaÁ„o\n", sistema.imprimirAlunosDeGrupo("Calculo 1"));
+		assertEquals("\n" + "Alunos do grupo Calculo 1:\n" + "* 117210121 - Vit√≥ria Alves - Engenharia El√©trica\n" +
+				"* 117210221 - Paulo Mendes - Computa√ß√£o\n", sistema.imprimirAlunosDeGrupo("Calculo 1"));
 	}
 
 	/**
-	 * Testa o mÈtodo que registra alunos que reponderam questıes.
-	 * Considerando as seguintes situaÁıes em sequÍncia de execuÁ„o do mÈtodo:
-	 * - Registra aluno de matrÌcula existente no sistema e ainda n„o registrado.
-	 * - Notifica que o aluno j· est· registrado e finaliza.
-	 * - Notifica que o aluno n„o foi cadastrado no sistema, logo n„o ser· registrado.
+	 * Testa o m√©todo que registra alunos que reponderam quest√µes.
+	 * Considerando as seguintes situa√ß√µes em sequ√™ncia de execu√ß√£o do m√©todo:
+	 * - Registra aluno de matr√≠cula existente no sistema e ainda n√£o registrado.
+	 * - Notifica que o aluno j√° est√° registrado e finaliza.
+	 * - Notifica que o aluno n√£o foi cadastrado no sistema, logo n√£o ser√° registrado.
 	 */
 	@Test
 	public void testRegistrarAlunoQueRespondeu() {
 		assertEquals("ALUNO REGISTRADO!" + System.lineSeparator(), sistema.registrarAlunoQueRespondeu("112212323"));
-		assertEquals("Aluno j· registrado." + System.lineSeparator(), sistema.registrarAlunoQueRespondeu("112212323"));
-		assertEquals("Aluno n„o cadastrado." + System.lineSeparator(), sistema.registrarAlunoQueRespondeu("999999999"));
+		assertEquals("Aluno j√° registrado." + System.lineSeparator(), sistema.registrarAlunoQueRespondeu("112212323"));
+		assertEquals("Aluno n√£o cadastrado." + System.lineSeparator(), sistema.registrarAlunoQueRespondeu("999999999"));
 	}
 
 	/**
-	 * Imprime o registro de alunos que responderam questıes que se encontra vazio.
+	 * Imprime o registro de alunos que responderam quest√µes que se encontra vazio.
 	 */
 	@Test
 	public void testImprimirRegistroDeAlunosVazio() {
-		assertEquals("O registro est· vazio!" + System.lineSeparator(), sistema2.imprimirRegistroDeAlunos());
+		assertEquals("O registro est√° vazio!" + System.lineSeparator(), sistema2.imprimirRegistroDeAlunos());
 	}
 	
 	/**
-	 * Imprime o registro de alunos que responderam questıes n„o vazio.
+	 * Imprime o registro de alunos que responderam quest√µes n√£o vazio.
 	 */
 	@Test
 	public void testImprimirRegistroDeAlunos() {
 		sistema.registrarAlunoQueRespondeu("112212323");
-		assertEquals("\nAlunos:\n" + "1. 112212323 - Samuel Pereira - AdministraÁ„o" + System.lineSeparator(), sistema.imprimirRegistroDeAlunos());
+		assertEquals("\nAlunos:\n" + "1. 112212323 - Samuel Pereira - Administra√ß√£o" + System.lineSeparator(), sistema.imprimirRegistroDeAlunos());
 	}
 	
 }

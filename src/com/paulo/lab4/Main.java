@@ -3,19 +3,19 @@ package com.paulo.lab4;
 import java.util.Scanner;
 
 /**
- * Representa um sistema de Controle de Alunos, contÈm alguns mÈtodos auxiliares que realizam a leitura de dados, 
- * tratamento de exceÁıes, e assim os dados tratados s„o passados para os mÈtodos das Classes auxiliares para 
- * concretizar a/as operaÁ„o/operaÁıes.
+ * Representa um sistema de Controle de Alunos, cont√©m alguns m√©todos auxiliares que realizam a leitura de dados, 
+ * tratamento de exce√ß√µes, e assim os dados tratados s√£o passados para os m√©todos das Classes auxiliares para 
+ * concretizar a/as opera√ß√£o/opera√ß√µes.
  * 
- * @author Paulo Mendes da Silva J˙nior - 117210922
+ * @author Paulo Mendes da Silva J√∫nior - 117210922
  * 
  */
 
 public class Main {
 	
 	/**
-	 * Constantes que s„o respons·veis pela singularidade do mÈtodo main e funcionam como chaves de seleÁ„o 
-	 * para as operaÁıes do sistema.
+	 * Constantes que s√£o respons√°veis pela singularidade do m√©todo main e funcionam como chaves de sele√ß√£o 
+	 * para as opera√ß√µes do sistema.
 	 */
 	private static final String CADASTRAR = "C";
 	private static final String EXIBIR = "E";
@@ -26,12 +26,12 @@ public class Main {
 	private static final String SAIR = "O";
 	
 	/**
-	 * Objeto Scanner que realiza as operaÁıes de leitura de dados do teclado.
+	 * Objeto Scanner que realiza as opera√ß√µes de leitura de dados do teclado.
 	 */
 	private static Scanner scan = new Scanner(System.in);
 	
 	/**
-	 * Sistema de controle que È respons·vel por armazenar todos os alunos, grupos e registro do sistema.
+	 * Sistema de controle que √© respons√°vel por armazenar todos os alunos, grupos e registro do sistema.
 	 */
 	private static Controle sistema = new Controle();
 	
@@ -72,7 +72,7 @@ public class Main {
 					break;
 					
 				default:
-					System.out.println("OP«√O INV¡LIDA!\n");
+					System.out.println("OP√á√ÉO INV√ÅLIDA!\n");
 					break;
 					
 			}
@@ -81,9 +81,9 @@ public class Main {
 	
 	
 	/**
-	 * Exibe o menu com as opÁıes do controle de Alunos.
+	 * Exibe o menu com as op√ß√µes do controle de Alunos.
 	 * 
-	 * @return : String que representa a opÁ„o escolhida lida a partir do teclado.
+	 * @return : String que representa a op√ß√£o escolhida a partir do teclado.
 	 */
 	public static String exibeMenu() {
 		System.out.println("(C)adastrar Aluno");
@@ -94,17 +94,17 @@ public class Main {
 		System.out.println("(I)mprimir Alunos que Responderam");
 		System.out.println("(O)ra, vamos fechar o programa!");
 		
-		System.out.print("\nOpÁ„o> ");
+		System.out.print("\nOp√ß√£o> ");
 		String op = scan.nextLine().toUpperCase();
 		return op;
 	}
 	
 	/**
-	 * Exibe o menu com a requisiÁ„o dos dados para cadastrar um novo aluno.
-	 * Caso a mesma matrÌcula seja inserida novamente uma mensagem de erro È exibida.
+	 * Exibe o menu com a requisi√ß√£o dos dados para cadastrar um novo aluno.
+	 * Caso a mesma matr√≠cula seja inserida novamente uma mensagem de erro √© exibida.
 	 */
 	public static void menuCadastrar() {
-		System.out.print("MatrÌcula: ");
+		System.out.print("Matr√≠cula: ");
 		String matricula = scan.nextLine();
 		System.out.print("Nome: ");
 		String nome = scan.nextLine();
@@ -119,19 +119,19 @@ public class Main {
 	}
 	
 	/**
-	 * Exibe um aluno que j· foi cadastrado, tendo como entrada a sua matrÌcula.
-	 * Caso uma matrÌcula n„o cadastrada seja inserida, uma mensagem de erro ser· exibida.
+	 * Exibe um aluno que j√° foi cadastrado, tendo como entrada a sua matr√≠cula.
+	 * Caso uma matr√≠cula n√£o cadastrada seja inserida, uma mensagem de erro ser√° exibida.
 	 */
 	public static void exibir() {
-		System.out.print("MatrÌcula: ");
+		System.out.print("Matr√≠cula: ");
 		String matricula = scan.nextLine();
 		System.out.println(sistema.exibirAluno(matricula));
 	}
 	
 	/**
 	 * Cria um novo Grupo a partir do seu tema(nome).
-	 * Caso se tente cadastrar um novo grupo com o mesmo nome de um grupo j· existente, uma mensagem de erro 
-	 * ocorrer·.
+	 * Caso se tente cadastrar um novo grupo com o mesmo nome de um grupo j√° existente, uma mensagem de erro 
+	 * ocorrer√°.
 	 */
 	public static void cadastrarGrupo() {
 		System.out.print("Grupo: ");
@@ -145,14 +145,14 @@ public class Main {
 	}
 	
 	/**
-	 * Aloca um aluno j· existente em um grupo j· existente. TambÈm pode imprimir os alunos que compıem um grupo.
-	 * Caso tente adicionar um aluno n„o cadastrado a um grupo, mensagens de erro s„o exibidas.
+	 * Aloca um aluno j√° existente em um grupo j√° existente. Tamb√©m pode imprimir os alunos que comp√µem um grupo.
+	 * Caso tente adicionar um aluno n√£o cadastrado a um grupo, mensagens de erro s√£o exibidas.
 	 */
 	public static void alocarAluno() {
 		System.out.print("(A)locar Aluno ou (I)mprimir Grupo? ");
 		String op = scan.nextLine().toUpperCase();	
 		if(op.equals("A")) {
-			System.out.print("Matricula: ");
+			System.out.print("Matr√≠cula: ");
 			String matricula = scan.nextLine();
 			System.out.print("Grupo: ");
 			String grupo = scan.nextLine().toLowerCase();
@@ -164,23 +164,23 @@ public class Main {
 			System.out.println(sistema.imprimirAlunosDeGrupo(grupo));
 		}	
 		else {
-			System.out.println("OP«√O INV¡LIDA!\n");
+			System.out.println("OP√á√ÉO INV√ÅLIDA!\n");
 		}
 	}
 	
 	/**
-	 * MÈtodo respons·vel por registrar um aluno que j· respondeu questıes no quadro.
-	 * Caso o aluno j· tenha sido registrado ou o matrÌcula passada n„o esteja cadastrada no sistema, o 
-	 * usu·rio È notificado.
+	 * M√©todo repons√°vel por registrar alunos que j√° responderam quest√µes no quadro.
+	 * Caso o aluno j√° tenha sido registrado ou a matr√≠cula passada n√£o esteja cadastrada no sistema, o 
+	 * usu√°rio √© notificado.
 	 */
 	public static void registrarAlunoQueRespondeu() {
-		System.out.print("MatrÌcula: ");
+		System.out.print("Matr√≠cula: ");
 		String matricula = scan.nextLine();
 		System.out.println(sistema.registrarAlunoQueRespondeu(matricula));
 	}
 	
 	/**
-	 * Imprime o registro de alunos que j· responderam a questıes no quadro.
+	 * Imprime o registro de alunos que j√° responderam a quest√µes no quadro.
 	 */
 	public static void imprimirAlunos() {
 		System.out.println(sistema.imprimirRegistroDeAlunos());

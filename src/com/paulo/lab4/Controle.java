@@ -8,7 +8,7 @@ import java.util.Iterator;
  * Representa um sistema de Controle de Alunos, todo controle de alunos possui um conjuntos de alunos, outro conjunto
  * de grupos e uma lista de registros.
  * 
- * @author Paulo Mendes da Silva J˙nior - 117210922
+ * @author Paulo Mendes da Silva J√∫nior - 117210922
  *
  */
 
@@ -25,27 +25,27 @@ public class Controle {
 	private HashMap<String, Grupo> grupos = new HashMap<>();
 	
 	/**
-	 * Lista sequencial que armazena todos os registros de alunos que responderam questıes.
+	 * Lista sequencial que armazena todos os registros de alunos que responderam quest√µes.
 	 */
 	private ArrayList<Aluno> registro = new ArrayList<>();
 	
 	
 	/**
-	 * Cadastra um aluno no Mapa de alunos caso todos seus dados sejam v·lidos, caso contr·rio, exceÁıes s„o
-	 * lanÁadas e tratadas.
+	 * Cadastra um aluno no Mapa de alunos caso todos seus dados sejam v√°lidos, caso contr√°rio, exce√ß√µes s√£o
+	 * lan√ßadas e tratadas.
 	 * 
-	 * @param matricula : matrÌcula do aluno.
+	 * @param matricula : matr√≠cula do aluno.
 	 * @param nome : nome do aluno.
 	 * @param curso : curso ao qual pertence o aluno.
 	 * 
-	 * @return : indicaÁ„o de sucesso/fracasso na operaÁ„o.
+	 * @return : indica√ß√£o de sucesso/fracasso na opera√ß√£o.
 	 * 
 	 * @throws NullPointerException : Ocorre caso valores (null) sejam passados como argumentos do construtor de um Aluno.
-	 * @throws IllegalArgumentException : Ocorre caso valores inv·lidos sejam passados como argumentos. ex: String com espaÁos vazios representando a matrÌcula.
+	 * @throws IllegalArgumentException : Ocorre caso valores inv√°lidos sejam passados como argumentos. ex: String com espa√ßos vazios representando a matr√≠cula.
 	 */
 	public String cadastraAluno(String matricula, String nome, String curso) throws NullPointerException, IllegalArgumentException  {
 		if(alunos.containsKey(matricula)) {
-			return "MATRÕCULA J¡ CADASTRADA!" + System.lineSeparator();
+			return "MATR√çCULA J√Å CADASTRADA!" + System.lineSeparator();
 		}
 		else {
 			Aluno aluno = new Aluno(matricula, nome, curso);
@@ -55,35 +55,35 @@ public class Controle {
 	}
 	
 	/**
-	 * Retorna um aluno contido no Mapa de alunos a partir de sua matrÌcula.
-	 * Caso n„o exista um aluno de tal matrÌcula, uma mensagem de erro È exibida. 
+	 * Retorna um aluno contido no Mapa de alunos a partir de sua matr√≠cula.
+	 * Caso n√£o exista um aluno de tal matr√≠cula, uma mensagem de erro √© exibida. 
 	 * 
-	 * @param matricula : matrÌcula do aluno.
+	 * @param matricula : matr√≠cula do aluno.
 	 * 
-	 * @return : uma representaÁ„o String do aluno, contendo matrÌcula, nome e curso.
+	 * @return : uma representa√ß√£o String do aluno, contendo matr√≠cula, nome e curso.
 	 */
 	public String exibirAluno(String matricula) {
 		if(alunos.containsKey(matricula)) {
 			return alunos.get(matricula).toString();
 		}
 		else {
-			return "Aluno n„o cadastrado." + System.lineSeparator();
+			return "Aluno n√£o cadastrado." + System.lineSeparator();
 		}
 	}
 	
 	/**
-	 * Cadastra um novo grupo. Caso um nome de grupo ja esteja cadastrado, È exibida uma notificaÁ„o.
+	 * Cadastra um novo grupo. Caso um nome de grupo ja esteja cadastrado, √© exibida uma notifica√ß√£o do erro.
 	 * 
 	 * @param nomeDoGrupo : tema do grupo.
 	 * 
-	 * @return : uma String que representa se a operaÁ„o foi bem/mal sucedida.
+	 * @return : uma String que representa se a opera√ß√£o foi bem/mal sucedida.
 	 * 
 	 * @throws NullPointerException : Ocorre caso valores (null) sejam passados como argumentos ao construtor de um Grupo.
-	 * @throws IllegalArgumentException : Ocorre caso um valor inv·lido seja passado como argumento. ex: String com espaÁos vazios representando o tema do grupo.  
+	 * @throws IllegalArgumentException : Ocorre caso um valor inv√°lido seja passado como argumento. ex: String com espa√ßos vazios representando o tema do grupo.  
 	 */
 	public String cadastrarGrupo(String nomeDoGrupo) throws NullPointerException, IllegalArgumentException {
 		if(grupos.containsKey(nomeDoGrupo)) {
-			return "GRUPO J¡ CADASTRADO!" + System.lineSeparator();
+			return "GRUPO J√Å CADASTRADO!" + System.lineSeparator();
 		}
 		else {
 			Grupo grupo = new Grupo(nomeDoGrupo);
@@ -93,20 +93,20 @@ public class Controle {
 	}
 	
 	/**
-	 * Aloca um aluno j· existente em um grupo j· existente. Caso sejam passados matrÌculas e/ou nomes de grupos
-	 * que n„o existem, uma mensagem informando o erro È exibida.
+	 * Aloca um aluno j√° existente em um grupo j√° existente. Caso sejam passados matr√≠culas e/ou nomes de grupos
+	 * que n√£o existem, uma mensagem informando o erro √© exibida.
 	 * 
-	 * @param matricula : matrÌcula do aluno a ser alocado.
-	 * @param grupo : nome do grupo em que o aluno de matrÌcula passada ser· inserido.
+	 * @param matricula : matr√≠cula do aluno a ser alocado.
+	 * @param grupo : nome do grupo em que o aluno de matr√≠cula passada ser√° inserido.
 	 * 
-	 * @return : retorna uma mensagem indicando o sucesso/fracasso na operaÁ„o.
+	 * @return : retorna uma mensagem indicando o sucesso/fracasso na opera√ß√£o.
 	 */
 	public String alocarAlunoEmGrupo(String matricula, String grupo) {
 		if(!alunos.containsKey(matricula)) {
-			return "Aluno n„o cadastrado!" + System.lineSeparator();
+			return "Aluno n√£o cadastrado!" + System.lineSeparator();
 		}
 		else if(!grupos.containsKey(grupo)) {
-			return "Grupo n„o cadastrado!" + System.lineSeparator();
+			return "Grupo n√£o cadastrado!" + System.lineSeparator();
 		}
 		else {
 			Grupo g = grupos.get(grupo);
@@ -118,17 +118,17 @@ public class Controle {
 	
 	/**
 	 * Imprime uma lista de alunos cadastrados em um determinado grupo a partir do nome do grupo. 
-	 * Caso o grupo n„o tenha sido cadastrado, uma mensagem de erro È exibida. 
+	 * Caso o grupo n√£o tenha sido cadastrado, uma mensagem de erro √© exibida. 
 	 * 
 	 * @param nomeDoGrupo : nome do grupo.
 	 * 
-	 * @return : retorna a lista de alunos que est„o cadastrados em um grupo caso o nome do grupo j· esteja cadastrado.
+	 * @return : retorna a lista de alunos que estÔøΩo cadastrados em um grupo caso o nome do grupo j√° esteja cadastrado.
 	 */
 	public String imprimirAlunosDeGrupo(String nomeDoGrupo) {
 		if(grupos.containsKey(nomeDoGrupo)) {
 			Grupo g = grupos.get(nomeDoGrupo);		
 			if(g.getAlunos().isEmpty()) {
-				return "O grupo est· vazio!" + System.lineSeparator();
+				return "O grupo est√° vazio!" + System.lineSeparator();
 			}
 			else 
 			{
@@ -142,22 +142,22 @@ public class Controle {
 			}	
 		}
 		else {
-			return "Grupo n„o cadastrado." + System.lineSeparator();
+			return "Grupo n√£o cadastrado." + System.lineSeparator();
 		}
 	}
 	
 	/**
-	 * Registra um aluno que respondeu questıes no quadro. 
-	 * Caso seja passada uma matrÌcula que n„o exista no controle ou o aluno j· esteja registrado, mensagens de erro s„o exibidas.
+	 * Registra um aluno que respondeu quest√µes no quadro. 
+	 * Caso seja passada uma matr√≠cula que n√£o exista no controle ou o aluno j√° esteja registrado, mensagens de erro s√£o exibidas.
 	 * 
-	 * @param matricula : matrÌcula do aluno.
+	 * @param matricula : matr√≠cula do aluno.
 	 * 
-	 * @return : retorna uma String indicando o sucesso/fracasso na operaÁ„o.
+	 * @return : retorna uma String indicando o sucesso/fracasso na opera√ß√£o.
 	 */
 	public String registrarAlunoQueRespondeu(String matricula) {
 		if(alunos.containsKey(matricula)) {
 			if(registro.contains(alunos.get(matricula))) {
-				return "Aluno j· registrado." + System.lineSeparator();
+				return "Aluno j√° registrado." + System.lineSeparator();
 			}
 			else {
 				registro.add(alunos.get(matricula));
@@ -165,18 +165,18 @@ public class Controle {
 			}
 		}
 		else {
-			return "Aluno n„o cadastrado." + System.lineSeparator();
+			return "Aluno n√£o cadastrado." + System.lineSeparator();
 		}
 	}
 	
 	/**
-	 * Imprime o registro de alunos que responderam a questıes no quadro.
+	 * Imprime o registro de alunos que responderam a quest√µes no quadro.
 	 * 
-	 * @return : String que representa o registro de alunos que responderam questıes no quadro.
+	 * @return : String que representa o registro de alunos que responderam quest√µes no quadro.
 	 */
 	public String imprimirRegistroDeAlunos() {
 		if(registro.isEmpty()) {
-			return "O registro est· vazio!" + System.lineSeparator();
+			return "O registro est√° vazio!" + System.lineSeparator();
 		}
 		else {
 			String saida = "";

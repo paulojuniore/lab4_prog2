@@ -4,7 +4,7 @@ package com.paulo.lab4;
  * Representa um aluno.
  * Todo aluno possui uma matricula, nome, curso e grupos de estudo associados.
  * 
- * @author Paulo Mendes da Silva J˙nior - 117210922
+ * @author Paulo Mendes da Silva J√∫nior - 117210922
  *
  */
 
@@ -27,21 +27,21 @@ public class Aluno {
 	
 	
 	/**
-	 * ConstrÛi um Aluno, que possui como par‚metros: matricula, nome e o curso do aluno.
+	 * Constr√≥i um Aluno, que possui como par√¢metros: matricula, nome e o curso do aluno.
 	 * 
-	 * @param matricula : matrÌcula do aluno.
+	 * @param matricula : matr√≠cula do aluno.
 	 * @param nome : nome do aluno.
 	 * @param curso : curso do aluno.
 	 */
 	public Aluno(String matricula, String nome, String curso) {	
 		if(matricula == null || nome == null || curso == null)
-			throw new NullPointerException("Dados inv·lidos.");
+			throw new NullPointerException("Dados inv√°lidos.");
 		if(matricula.trim().isEmpty())
-			throw new IllegalArgumentException("MatrÌcula inv·lida.");
+			throw new IllegalArgumentException("Matr√≠cula inv√°lida.");
 		if(nome.trim().isEmpty())
-			throw new IllegalArgumentException("Nome inv·lido.");
+			throw new IllegalArgumentException("Nome inv√°lido.");
 		if(curso.trim().isEmpty())
-			throw new IllegalArgumentException("Curso inv·lido.");
+			throw new IllegalArgumentException("Curso inv√°lido.");
 		
 		this.matricula = matricula;
 		this.nome = nome;
@@ -49,9 +49,9 @@ public class Aluno {
 	}
 	
 	/**
-	 * Retorna matrÌcula do aluno selecionado.
+	 * Retorna matr√≠cula do aluno selecionado.
 	 * 
-	 * @return : matrÌcula do aluno.
+	 * @return : matr√≠cula do aluno.
 	 */
 	public String getMatricula() {
 		return matricula;
@@ -76,18 +76,18 @@ public class Aluno {
 	}
 	
 	/**
-	 * RepresentaÁ„o String de um Aluno. Formato: (MATRICULA - NOME - CURSO)
+	 * Representa√ß√£o String de um Aluno. Formato: (MATRICULA - NOME - CURSO)
 	 * 
-	 * @return : representaÁ„o String de um aluno.
+	 * @return : representa√ß√£o String de um aluno.
 	 */
 	public String toString() {
 		return matricula + " - " + nome + " - " + curso + System.lineSeparator();
 	}
 	
 	/**
-	 * Gera um identificar ˙nico para cada item inserido na coleÁ„o HashSet, atravÈs do Hashing.
+	 * Gera um identificar √∫nico para cada item inserido na cole√ß√£o HashSet, atrav√©s do Hashing.
 	 * 
-	 * @return : identificador ˙nico para cada elemento de uma coleÁ„o.
+	 * @return : identificador √∫nico para cada elemento de uma cole√ß√£o.
 	 */
 	@Override
 	public int hashCode() {
@@ -98,9 +98,9 @@ public class Aluno {
 	}
 	
 	/**
-	 * Compara se dois objetos do tipo Aluno s„o iguais. Dois objetos Aluno n„o iguais se, e somente se, suas matrÌculas forem iguais.
+	 * Compara se dois objetos do tipo Aluno s√£o iguais. Dois objetos Aluno s√£o iguais se, e somente se, suas matr√≠culas forem iguais.
 	 * 
-	 * @return : boolean que representa se os dois objetos Aluno tem matrÌculas iguais.
+	 * @return : boolean que representa se os dois objetos Aluno tem matr√≠culas iguais.
 	 */
 	@Override
 	public boolean equals(Object obj) {

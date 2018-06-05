@@ -5,9 +5,9 @@ import java.util.Set;
 
 /**
  * Representa um Grupo de Estudo.
- * Um Grupo de estudos possui um tema, e também, um conjunto de alunos associado a este grupo.
+ * Um Grupo de estudos possui um tema, e tambÃ©m, um conjunto de alunos associado a este grupo.
  * 
- * @author Paulo Mendes da Silva Júnior - 117210922
+ * @author Paulo Mendes da Silva JÃºnior - 117210922
  *
  */
 
@@ -19,21 +19,21 @@ public class Grupo {
 	private String tema;
 	
 	/**
-	 * Representa um conjunto de alunos que compôem aquele grupo. inicialmente vazio e sem tamanho fixo.
+	 * Representa um conjunto de alunos que compÃµem aquele grupo. inicialmente vazio e sem tamanho fixo.
 	 */
 	private Set<Aluno> alunos;
 	
 	
 	/**
-	 * Constrói um Grupo de estudos a partir do tema ao qual irá se referir.
+	 * Constrï¿½i um Grupo de estudos a partir do tema ao qual irÃ¡ se referir.
 	 * 
 	 * @param tema : nome do grupo.
 	 */
 	public Grupo(String tema) {
 		if(tema == null)
-			throw new NullPointerException("Tema inválido!");
+			throw new NullPointerException("Tema invÃ¡lido!");
 		if(tema.trim().isEmpty())
-			throw new IllegalArgumentException("Tema do grupo inválido!");
+			throw new IllegalArgumentException("Tema do grupo invÃ¡lido!");
 		
 		this.tema = tema;
 		this.alunos = new HashSet<>();
@@ -51,7 +51,7 @@ public class Grupo {
 	/**
 	 * Retorna o conjunto de alunos de um grupo.
 	 * 
-	 * @return : conjunto de alunos de um grupo específico.
+	 * @return : conjunto de alunos de um grupo especÃ­fico.
 	 */
 	public Set<Aluno> getAlunos() {
 		return alunos;
@@ -60,16 +60,16 @@ public class Grupo {
 	/**
 	 * Adiciona um aluno a um grupo de alunos.
 	 * 
-	 * @param aluno : objeto Aluno que contém matrícula, nome e curso. Todos já validados.
+	 * @param aluno : objeto Aluno que contÃ©m matrÃ­cula, nome e curso. Todos jÃ¡ validados.
 	 */
 	public void adicionaAluno(Aluno aluno) {
 		alunos.add(aluno);
 	}
 	
 	/**
-	 * Gera um identificar único para cada item inserido na coleção HashSet, através do Hashing.
+	 * Gera um identificar Ãºnico para cada item inserido na coleÃ§Ã£o HashSet, atravÃ©s do Hashing.
 	 * 
-	 * @return : identificador único de um grupo a partir de seu tema.
+	 * @return : identificador Ãºnico de um grupo a partir de seu tema.
 	 */
 	@Override
 	public int hashCode() {
@@ -80,9 +80,9 @@ public class Grupo {
 	}
 
 	/**
-	 * Verifica se dois grupos são iguais. Dois grupos são iguais se possuem o mesmo nome.
+	 * Verifica se dois grupos sÃ£o iguais. Dois grupos sÃ£o iguais se possuem o mesmo nome.
 	 * 
-	 * @return : valor boleano que representa se dois objetos são iguais ou não. true/false
+	 * @return : valor boleano que representa se dois objetos sÃ£o iguais ou nÃ£o. true/false
 	 */
 	@Override
 	public boolean equals(Object obj) {

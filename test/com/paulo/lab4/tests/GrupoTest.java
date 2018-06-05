@@ -9,9 +9,9 @@ import com.paulo.lab4.Controle;
 import com.paulo.lab4.Grupo;
 
 /**
- * Classe de testes unit·rio da classe Grupo utilizando o JUnit.
+ * Classe de testes unit√°rio da classe Grupo utilizando o JUnit.
  * 
- * @author Paulo Mendes da Silva J˙nior.
+ * @author Paulo Mendes da Silva J√∫nior.
  *
  */
 
@@ -26,32 +26,32 @@ public class GrupoTest {
 	private Aluno a3;
 
 	/**
-	 * InstanciaÁ„o de alguns Grupos e Alunos. todos com dados v·lidos.
+	 * Instancia√ß√£o de alguns Grupos e Alunos. todos com dados v√°lidos.
 	 */
 	@Before
 	public void criaGruposeAlunos() {
-		g1 = new Grupo("C·lculo I");
-		g2 = new Grupo("C·lculo I");
-		g3 = new Grupo("Mec‚nica dos FluÌdos");
+		g1 = new Grupo("C√°lculo I");
+		g2 = new Grupo("C√°lculo II");
+		g3 = new Grupo("Mec√¢nica dos Flu√≠dos");
 		
-		a1 = new Aluno("117210922", "Cleiton Bezerra", "Engenharia AgrÌcola");
-		a2 = new Aluno("117210923", "Felipe Arag„o", "Engenharia ElÈtrica");
-		a3 = new Aluno("117210924", "J˙lio Silva", "CiÍncia da ComputaÁ„o");
+		a1 = new Aluno("117210922", "Cleiton Bezerra", "Engenharia Agr√≠cola");
+		a2 = new Aluno("117210923", "Felipe Arag√£o", "Engenharia El√©trica");
+		a3 = new Aluno("117210924", "J√∫lio Silva", "Ci√™ncia da Computa√ß√£o");
 	}
 	
 	/**
-	 * CriaÁ„o de um Grupo com nome v·lido.
+	 * Cria√ß√£o de um Grupo com nome vÔøΩlido.
 	 */
 	@Test
 	public void testGrupo() {
-		Grupo grupo = new Grupo("Algebra Vetorial e Geometria AnalÌtica");
+		Grupo grupo = new Grupo("Algebra Vetorial e Geometria Anal√≠tica");
 	}
 
 	/**
-	 * Adiciona um Aluno com todos os dados v·lidos a um grupo.
-	 * OBS: O mÈtodo adicionaAluno contido na classe grupo n„o possui valor de retorno, apenas adiciona o aluno
-	 * em quest„o ao grupo selecionado. PorÈm antes mesmo de os dados chegarem ao mÈtodo eles s„o verificados e
-	 * em caso de invalidez de algum/alguns destes, a operaÁ„o È cancelada e o fluxo È retornado ao menu principal.
+	 * Adiciona um Aluno com todos os dados v√°lidos a um grupo.
+	 * OBS: O m√©todo adicionaAluno contido na classe grupo n√£o possui valor de retorno, apenas adiciona o aluno
+	 * em quest√£o ao grupo selecionado. Por√©m antes mesmo de os dados chegarem ao m√©todo eles s√£o verificados e
+	 * em caso de invalidez de algum/alguns destes, a opera√ß√£o √© cancelada e o fluxo √© retornado ao menu principal.
 	 */
 	@Test
 	public void testAdicionaAluno() {
@@ -59,7 +59,7 @@ public class GrupoTest {
 	}
 	
 	/**
-	 * CriaÁ„o de grupo com tema nulo.
+	 * Cria√ß√£o de grupo com tema nulo.
 	 */
 	@Test(expected=NullPointerException.class)
 	public void testCriaGrupoTemaNulo() {
@@ -67,7 +67,7 @@ public class GrupoTest {
 	}
 	
 	/**
-	 * CriaÁ„o de grupo com tema inv·lido.
+	 * Cria√ß√£o de grupo com tema inv√°lido.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testCriaGrupoTemaInvalido() {
@@ -75,7 +75,7 @@ public class GrupoTest {
 	}
 
 	/**
-	 * Verifica se dois objeto Grupo s„o iguais. Dois grupos s„o iguais se possuem temas iguais.
+	 * Verifica se dois objeto Grupo s√£o iguais. Dois grupos s√£o iguais se possuem temas iguais.
 	 */
 	@Test
 	public void testEqualsObject() {
