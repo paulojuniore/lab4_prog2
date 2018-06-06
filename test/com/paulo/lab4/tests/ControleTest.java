@@ -112,7 +112,7 @@ public class ControleTest {
 	 */
 	@Test
 	public void testAlocarAlunoExistenteEmGrupoNaoExistente() {
-		assertEquals("Grupo n�o cadastrado!" + System.lineSeparator(), sistema.alocarAlunoEmGrupo("117210221", "Materiais"));
+		assertEquals("Grupo não cadastrado!" + System.lineSeparator(), sistema.alocarAlunoEmGrupo("117210221", "Materiais"));
 	}
 
 	/**

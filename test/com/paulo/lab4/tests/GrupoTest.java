@@ -31,7 +31,7 @@ public class GrupoTest {
 	@Before
 	public void criaGruposeAlunos() {
 		g1 = new Grupo("Cálculo I");
-		g2 = new Grupo("Cálculo II");
+		g2 = new Grupo("Cálculo I");
 		g3 = new Grupo("Mecânica dos Fluídos");
 		
 		a1 = new Aluno("117210922", "Cleiton Bezerra", "Engenharia Agrícola");
@@ -40,7 +40,7 @@ public class GrupoTest {
 	}
 	
 	/**
-	 * Criação de um Grupo com nome v�lido.
+	 * Criação de um Grupo com nome válido.
 	 */
 	@Test
 	public void testGrupo() {

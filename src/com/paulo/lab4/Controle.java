@@ -82,12 +82,12 @@ public class Controle {
 	 * @throws IllegalArgumentException : Ocorre caso um valor inválido seja passado como argumento. ex: String com espaços vazios representando o tema do grupo.  
 	 */
 	public String cadastrarGrupo(String nomeDoGrupo) throws NullPointerException, IllegalArgumentException {
-		if(grupos.containsKey(nomeDoGrupo)) {
+		if(grupos.containsKey(nomeDoGrupo.toLowerCase())) {
 			return "GRUPO JÁ CADASTRADO!" + System.lineSeparator();
 		}
 		else {
 			Grupo grupo = new Grupo(nomeDoGrupo);
-			grupos.put(nomeDoGrupo, grupo);
+			grupos.put(nomeDoGrupo.toLowerCase(), grupo);
 			return "CADASTRO REALIZADO!" + System.lineSeparator();
 		}		
 	}
@@ -105,7 +105,7 @@ public class Controle {
 		if(!alunos.containsKey(matricula)) {
 			return "Aluno não cadastrado!" + System.lineSeparator();
 		}
-		else if(!grupos.containsKey(grupo)) {
+		else if(!grupos.containsKey(grupo.toLowerCase())) {
 			return "Grupo não cadastrado!" + System.lineSeparator();
 		}
 		else {
@@ -125,8 +125,8 @@ public class Controle {
 	 * @return : retorna a lista de alunos que est�o cadastrados em um grupo caso o nome do grupo já esteja cadastrado.
 	 */
 	public String imprimirAlunosDeGrupo(String nomeDoGrupo) {
-		if(grupos.containsKey(nomeDoGrupo)) {
-			Grupo g = grupos.get(nomeDoGrupo);		
+		if(grupos.containsKey(nomeDoGrupo.toLowerCase())) {
+			Grupo g = grupos.get(nomeDoGrupo.toLowerCase());		
 			if(g.getAlunos().isEmpty()) {
 				return "O grupo está vazio!" + System.lineSeparator();
 			}
@@ -134,7 +134,7 @@ public class Controle {
 			{
 				Iterator<Aluno> it = g.getAlunos().iterator();
 				String saida = "";
-				saida += "\nAlunos do grupo " + nomeDoGrupo + ":\n";
+				saida += "\nAlunos do grupo " + g.getTema() + ":\n";
 				while(it.hasNext()) {
 					saida += "* " + it.next();
 				}

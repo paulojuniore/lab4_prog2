@@ -135,7 +135,7 @@ public class Main {
 	 */
 	public static void cadastrarGrupo() {
 		System.out.print("Grupo: ");
-		String nomeGrupo = scan.nextLine().toLowerCase();
+		String nomeGrupo = scan.nextLine();
 		try {
 			System.out.println(sistema.cadastrarGrupo(nomeGrupo));
 		}
@@ -155,13 +155,13 @@ public class Main {
 			System.out.print("Matrícula: ");
 			String matricula = scan.nextLine();
 			System.out.print("Grupo: ");
-			String grupo = scan.nextLine().toLowerCase();
-			System.out.println(sistema.alocarAlunoEmGrupo(matricula, grupo));
+			String grupo = scan.nextLine();
+			System.out.println(sistema.alocarAlunoEmGrupo(matricula, grupo.toLowerCase()));
 		}
 		else if(op.equals("I")) {
 			System.out.print("Grupo: ");
-			String grupo = scan.nextLine().toLowerCase();
-			System.out.println(sistema.imprimirAlunosDeGrupo(grupo));
+			String grupo = scan.nextLine();
+			System.out.println(sistema.imprimirAlunosDeGrupo(grupo.toLowerCase()));
 		}	
 		else {
 			System.out.println("OPÇÃO INVÁLIDA!\n");
