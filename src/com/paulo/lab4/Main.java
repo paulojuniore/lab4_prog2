@@ -15,7 +15,7 @@ public class Main {
 	
 	/**
 	 * Constantes que são responsáveis pela singularidade do método main e funcionam como chaves de seleção 
-	 * para as operações do sistema.
+	 * para as operações do Sistema.
 	 */
 	private static final String CADASTRAR = "C";
 	private static final String EXIBIR = "E";
