@@ -5,7 +5,7 @@ import java.util.Set;
 
 /**
  * Representa um Grupo de Estudo.
- * Um Grupo de estudos possui um tema, e também, um conjunto de alunos associado a este Grupo.
+ * Um Grupo de estudos possui um tema, e também, um conjunto de alunos associado a este grupo.
  * 
  * @author Paulo Mendes da Silva Júnior - 117210922
  *

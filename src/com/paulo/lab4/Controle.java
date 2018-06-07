@@ -170,7 +170,7 @@ public class Controle {
 	}
 	
 	/**
-	 * Imprime o registro de Alunos que responderam a questões no quadro.
+	 * Imprime o registro de alunos que responderam a questões no quadro.
 	 * 
 	 * @return : String que representa o registro de alunos que responderam questões no quadro.
 	 */

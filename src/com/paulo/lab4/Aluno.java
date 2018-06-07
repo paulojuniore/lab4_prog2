@@ -87,7 +87,7 @@ public class Aluno {
 	/**
 	 * Gera um identificar único para cada item inserido na coleção HashSet, através do Hashing.
 	 * 
-	 * @return : identificador único para cada elemento de uma Coleção..
+	 * @return : identificador único para cada elemento de uma coleção.
 	 */
 	@Override
 	public int hashCode() {
